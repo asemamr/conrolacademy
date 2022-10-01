@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
 html,
 body {
   padding: 0;
@@ -5,22 +7,96 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: var(--background-color);
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --main-color: #AD8B73;
+  --secondary-color: #CEAB93;
+  --smooth-color: #E3CAA5;
+  --background-color: #FFFBE9;
+  --transition: 0.3s;
+  --main-padding: 50px;
+  --section-background: #ececec;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.container {
+  padding: 0 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 767px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+/* small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Times New Roman', Times, serif;
+}
+h2.header,
+h3.header {
+  font-size: 3rem;
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+}
+h2.header::after,
+h3.header::after {
+  content: "";
+  height: 6px;
+  width: 150px;
+  position: absolute;
+  background-color: black;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+h1.anchor,
+h2.anchor,
+h3.anchor,
+h4.anchor,
+h5.anchor,
+h6.anchor {
+  color: var(--main-color);
+  margin: 2rem 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}

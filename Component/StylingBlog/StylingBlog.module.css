@@ -1,0 +1,55 @@
+
+
+.heading {
+  font-size: 1.6rem;
+  margin: .8rem 0;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  
+}
+.heading2 {
+  font-size: 1.6rem;
+}
+.heading3 {
+  font-size: 1.4rem;
+}
+
+.heading a {
+  text-transform: capitalize;
+  color: var(--main-color);
+  
+  
+}
+.para {
+  font-size: 1rem;
+  padding: .8rem 0;
+  text-align: justify;
+  font-family: 'Open Sans', sans-serif;
+}
+.link {
+  color: #91726c;
+  cursor: pointer;
+}
+.list {
+  padding: .8rem 0;
+}
+.list li {
+  font-size: 1rem;
+  list-style-type:disc;
+  margin-left: 3rem;
+  margin-bottom: 0.5rem;
+}
+.OrderList {
+  padding: .8rem 0;
+}
+.OrderList li {
+  font-size: 1.1rem;
+  margin-left: 3rem;
+}
+.body {
+  padding: 0 50%;
+}
+.code {
+  font-size: 1rem;
+  line-height: 25px;
+}

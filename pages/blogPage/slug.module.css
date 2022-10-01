@@ -1,0 +1,22 @@
+
+/* #sum-numbers {
+  color: blue;
+  font-size: 5rem;
+} */
+.progress {
+  position: fixed;
+  background-color: var(--secondary-color);
+  top: 0;
+  left: -100vw;
+  width: 200vw;
+  height: 5px;
+  z-index: 11;
+}
+.blogHeading {
+  font-size: 1.8rem;
+  font-family: 'Open Sans', sans-serif;
+}
+.blog {
+  padding: 20px 15%;
+  margin-top: 5rem;
+}

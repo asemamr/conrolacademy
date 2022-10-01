@@ -1,0 +1,49 @@
+.article {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: row-reverse;
+  background-color: antiquewhite;
+  border-radius: 5px;
+}
+.article .image {
+  width: 30%;
+}
+.article .image img {
+  filter: grayscale(100%);
+  transition: .5s;
+  margin: 0 2rem;
+}
+.article:hover .image img {
+  filter: grayscale(0);
+}
+.article .text {
+  margin: 1rem;
+  border-left: 2px solid black;
+  width: 70%;
+  padding-left: 2rem;
+}
+.article .text h2 {
+  padding: .5rem 0 1rem;
+}
+.article .info {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.article .info a button{
+  background-color: var(--main-color);
+  border: none;
+  padding:  .7rem 1rem;
+  color: var(--background-color);
+  border: 1px solid var(--main-color);
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.article .info a button:hover {
+  background-color: var(--background-color);
+  color: var(--main-color);
+}

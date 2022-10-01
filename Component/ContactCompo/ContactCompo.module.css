@@ -1,0 +1,133 @@
+.div {
+  margin-top: 8rem;
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem auto;
+  width: 700px;
+  gap: 1rem;
+}
+.form > div {
+  display: flex;
+  position: relative;
+  
+}
+.form > div:hover {
+  border-color: var(--main-color);
+}
+.form > div input,
+.form > div textarea {
+  background-color: transparent;
+  outline: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: .75rem 1.2rem;
+  font-size: 1.2rem;
+  border: none;
+  z-index: 2;
+}
+.form > div textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  resize:vertical;
+
+}
+.form .email,
+.form .name {
+  width: calc(50% - .5rem);
+}
+.form .phone,
+.form .message {
+  width: 100%;
+}
+.form > div > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 2px solid black;
+  transition: border-color 0.1s;
+}
+.form > div > div::before {
+  content: attr(placeholder);
+  position: absolute;
+  height: 20px;
+  top: .75rem;
+  left: 0;
+  transition: 0.2s ease;
+  background-color: var(--background-color);
+  z-index: 0;
+  transform-origin: left;
+  text-align: center;
+  padding: 0 20px;
+}
+.form input:focus ~ .sudoEl::before, 
+.form textarea:focus ~ .sudoEl::before,
+.form > div.active .sudoEl::before{
+  color: var(--main-color);
+  scale: 0.7;
+  top: -.75rem;
+  margin: 0 5px;
+}
+
+.form input:focus ~ .sudoEl, 
+.form textarea:focus ~ .sudoEl {
+  border-color: var(--main-color);
+}
+.form .button {
+  width: 100%;
+  padding: .8rem 0;
+  border: none;
+  background-color: var(--main-color);
+  font-weight: bold;
+  cursor: pointer;
+  font-family:Arial, Helvetica, sans-serif;
+  border: 2px solid var(--main-color);
+  transition: 0.3s;
+  color: var(--background-color);
+}
+.form .button:hover {
+  background-color: var(--background-color);
+  color: var(--main-color);
+}
+.info {
+  text-align: center;
+}
+.info p {
+  font-size: .8rem;
+} 
+.info h4 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.info .email {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+  margin: 0 auto;
+}
+.info .email::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-color);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s ease-in-out;
+}
+.info .email:hover::after{
+  animation: move 0.3s ;
+  left: -100%;
+}
+@keyframes move {
+  0% {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}

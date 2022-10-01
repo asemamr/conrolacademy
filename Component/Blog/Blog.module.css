@@ -1,0 +1,16 @@
+.blog {
+  background-color: antiquewhite;
+  width: calc(50% - 10px);
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--main-color);
+  transition: background-color .2s;
+}
+.blog:hover {
+  background-color: rgb(220, 206, 187);
+}
+.blog .info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
