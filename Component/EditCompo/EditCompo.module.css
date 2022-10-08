@@ -37,7 +37,8 @@
   width: calc(50% - .5rem);
 }
 .form .link,
-.form .description {
+.form .description,
+.form .image {
   width: 100%;
 }
 .form > div > div {
@@ -75,6 +76,15 @@
 .form textarea:focus ~ .sudoEl {
   border-color: var(--main-color);
 }
+.form .image {
+  align-items: center;
+  padding: 20px 20px 20px 0;
+  height: fit-content;
+}
+.form .image img {
+  width: 200px;
+  height: 200px;
+}
 .form .button {
   width: 100%;
   padding: .8rem 0;
@@ -90,4 +100,11 @@
 .form .button:hover {
   background-color: var(--background-color);
   color: var(--main-color);
+}
+
+h2.heading {
+  margin-top: 6rem;
+  margin-left: 5rem;
+  color: red;
+  text-transform: capitalize;
 }

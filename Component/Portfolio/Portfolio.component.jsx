@@ -16,7 +16,6 @@ export default function Portfolio() {
 
   const { scrollYProgress } = useScroll();
   const scaleX = scrollYProgress;
-  console.log(scaleX);
 
   useEffect(() => {
     document.addEventListener("mousemove", (e) => {

@@ -1,12 +1,10 @@
-import Articles from "../../Component/Articles/Articles.component";
-import Youtube from "../../Component/Youtube/Youtube.component";
+import Articles from "Articles/Articles.component";
+import Youtube from "Youtube/Youtube.component";
+import connect from "../../utils/database";
 
 
 
 export default function ArticlesPage({posts}) {
-  
-  
-  
 
   const data = [
     {
@@ -58,14 +56,25 @@ export default function ArticlesPage({posts}) {
 
   return (
     <div className="container">
-      <Articles posts={data} ></Articles>
+      <Articles posts={posts} ></Articles>
     </div>
   )
 }
 export async function getStaticProps() {
   
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await res.json();
+  const { db, client } = await connect();
+
+  let posts = await db.collection("articles").find().toArray();
+  posts = posts.map(post => ({
+    date: post.date,
+    title: post.title,
+    writer: post.writer,
+    link: post.link,
+    description: post.description,
+    image: post.image,
+    id: post._id.toString()
+  }))
+  client.close();
 
   return {
     props: {

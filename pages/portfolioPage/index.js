@@ -1,5 +1,6 @@
 
-import Portfolio from "../../Component/Portfolio/Portfolio.component"
+import Portfolio from "Portfolio/Portfolio.component"
+
 export default function Blogs() {
   return (
     <div className="container">

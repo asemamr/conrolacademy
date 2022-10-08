@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs";
 import glob from "glob";
 import matter from "gray-matter";
+import { comments } from "../../comments";
 
 const POSTS_PATH = path.join(process.cwd(), "posts");
 
@@ -17,7 +18,7 @@ export function getSlugs() {
     const [slug, _ext] = fileName.split(".");
     return slug;
   })
-  
+  console.log(comments)
 }
 
 export function getAllPosts() {

@@ -3,12 +3,13 @@ import Link from "next/link";
 import logo from "../../images/logo.png";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useSession, signIn } from "next-auth/react";
 
 export default function Navigator() {
   const router = useRouter();
-
+  const { data: session, status } = useSession();
   return (
-    <div className={styles.nav}>
+    <div className={`${styles.nav} ${status === "loading"? styles.loading: styles.loaded}`}>
       <div className={`${styles.dev} container`}>
         <div className={styles.logo}>
           <Link href="/">
@@ -48,13 +49,15 @@ export default function Navigator() {
               </a>
             </Link>
           </li>
-          <li>
+          {(session) && (
+            <li>
             <Link href="/editPage">
               <a className={router.pathname == "/editPage" ? styles.active : ""}>
               <i className="fa-solid fa-pen-to-square"></i>EDIT
               </a>
             </Link>
           </li>
+          )}
           <li>
             <Link href="/contact">
               <a className={router.pathname == "/contact" ? styles.active : ""}>
@@ -62,6 +65,30 @@ export default function Navigator() {
               </a>
             </Link>
           </li>
+          {(!session) && (
+            <li>
+            <Link href="/api/auth/signin">
+                <a onClick={() => {
+                  e.preventDefault()
+                  signIn("github")
+                }} className={router.pathname == "/api/auth/signin" ? styles.active : ""}>
+              <i className="fa-regular fa-unlock"></i>
+              </a>
+            </Link>
+            </li>
+          )
+          }
+          {(session) && (
+            <li>
+            <Link href="/api/auth/signout">
+              <a onClick={()=> signIN()} className={router.pathname == "/api/auth/signout" ? styles.active : ""}>
+              <i className="fa-regular fa-lock"></i>
+              </a>
+            </Link>
+            </li>
+          )
+          }
+          
         </ul>
       </div>
     </div>

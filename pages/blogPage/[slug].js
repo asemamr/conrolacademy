@@ -4,12 +4,12 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import rehypeSlug   from "rehype-slug";
 import  rehypeAutolinkHeadings  from "rehype-autolink-headings";
-import { Youtube } from "../../Component/Youtube/Youtube.component";
+import { Youtube } from "Youtube/Youtube.component";
 import Image from "next/image";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css"
 import styles from "./slug.module.css"
-import { Code, Body, OrderList, Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Paragraph, Anchor, Photo, List } from "../../Component/StylingBlog/StylingBlog.component";
+import { Code, Body, OrderList, Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Paragraph, Anchor, Photo, List } from "StylingBlog/StylingBlog.component";
 import { useScroll, useSpring, motion} from "framer-motion";
 
 const components = {
@@ -32,10 +32,6 @@ const components = {
 
 export default function Slug({ post: { source, meta: { title } } }) {
   
-  const buff = Buffer.alloc(6);
-  buff.write("string");
-
-  console.log(buff.toJSON());
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress,{ stiffness: 300, damping: 30 });
   return <div className={`container ${styles.blog}`}>

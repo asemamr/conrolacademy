@@ -16,10 +16,10 @@ export default function Articles({ posts }) {
         return (
           <Article
             writer={post.writer} 
-            key={post.key}
-            header={post.header}
+            key={post.id}
+            title={post.title}
             date={post.date}
-            abstract={post.abstract}
+            description={post.description}
             image={post.image}
             link={post.link}
           ></Article>

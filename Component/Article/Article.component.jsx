@@ -3,17 +3,16 @@ import styles from "./Article.module.css";
 export default function Article({
   writer,
   date,
-  abstract,
+  description,
   image,
   link,
-  key,
-  header
+  title
 }) {
   return (
     <div className={styles.article}>
       <div className={styles.text}>
-        <h2>{header}</h2>
-        <p>{abstract}</p>
+        <h2>{title}</h2>
+        <p>{description}</p>
         <div className={styles.info}>
           <p>{writer}</p>
           <p> {date}</p>
@@ -24,7 +23,7 @@ export default function Article({
       </div>
       <div className={styles.image}>
         <picture>
-          <img src={image} alt="the article's image" />
+          <img src={image} alt="the article's image" width={290} height={ 158} />
         </picture>
       </div>
     </div>

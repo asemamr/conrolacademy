@@ -1,5 +1,7 @@
-import { EditCompo } from "../../Component/EditCompo/EditCompo.component"
+import { EditCompo } from "EditCompo/EditCompo.component"
 
 export default function EditPage() {
-  return <EditCompo></EditCompo>
+  return <>
+    <EditCompo></EditCompo>
+  </>
 }

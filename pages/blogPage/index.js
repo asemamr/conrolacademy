@@ -1,5 +1,5 @@
 import path from "path";
-import Blogs from "../../Component/Blogs/Blogs.component";
+import Blogs from "Blogs/Blogs.component";
 import { getSlugs } from "../api/api";
 import { getAllPosts } from "../api/api";
 export default function BlogPage({ posts }) {

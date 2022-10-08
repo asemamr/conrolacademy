@@ -23,7 +23,7 @@
 }
 .dev  a {
   display:flex;
-  padding: 10px 30px;
+  padding: 10px 15px;
   cursor: pointer;
   font-weight: bold;
   font-size: .9rem;
@@ -36,4 +36,12 @@
 .dev li a i {
   font-weight: normal;
   padding-right: 8px;
+}
+.loading {
+  top: -100%;
+  transition: all .5s ease-in-out;
+}
+.loaded {
+  top: 0;
+  transition: all .5s ease-in-out;
 }
