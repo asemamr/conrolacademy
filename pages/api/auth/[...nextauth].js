@@ -17,13 +17,17 @@ export default NextAuth({
         const { username, password } = credentials;
 
         if (username === process.env.USER_NAME && password === process.env.PASSWORD) {
-          return { username, id: "1234" };
+          return { username, id: 2 };
         }
         return null;
       },
       
     })
   ],
-  secret: process.env.PASSWORD,
+  secret: process.env.SECRET,
   NextURL: process.env.NEXTAUTH_URL,
+  jwt: {
+    secret: process.env.SECRET,
+    encryption: true, 
+  }
 })
