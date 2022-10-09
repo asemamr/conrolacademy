@@ -8,7 +8,7 @@ import { Youtube } from "Youtube/Youtube.component";
 import Image from "next/image";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css"
-import styles from "./slug.module.css"
+import styles from "../../public/slug.module.css"
 import { Code, Body, OrderList, Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Paragraph, Anchor, Photo, List } from "StylingBlog/StylingBlog.component";
 import { useScroll, useSpring, motion} from "framer-motion";
 
