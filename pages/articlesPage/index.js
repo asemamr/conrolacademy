@@ -1,5 +1,7 @@
 import Articles from "Articles/Articles.component";
-import connect from "../../utils/database";
+// import connect from "../../utils/database";
+import { MongoClient } from "mongodb";
+import { getAllPosts } from "../api/api";
 
 
 
@@ -55,13 +57,15 @@ export default function ArticlesPage({posts}) {
 
   return (
     <div className="container">
-      <Articles posts={data} ></Articles>
+      <Articles posts={posts} ></Articles>
     </div>
   )
 }
 export async function getStaticProps() {
   
-  const { db, client } = await connect();
+  // const { db, client } = await connect();
+  const client = new MongoClient(process.env.DB_URL);
+  const db = client.db("fadi");
 
   let posts = await db.collection("articles").find().toArray();
   client.close();
