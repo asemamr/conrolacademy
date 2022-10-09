@@ -8,12 +8,15 @@
   border-radius: 5px;
 }
 .article .image {
-  width: 30%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 .article .image img {
   filter: grayscale(100%);
   transition: .5s;
-  margin: 0 2rem;
 }
 .article:hover .image img {
   filter: grayscale(0);

@@ -2,12 +2,14 @@ import styles from "./EditCompo.module.css";
 import { useRef, useEffect, useState } from "react";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
-import { redirect } from "next/dist/server/api-utils";
+import { useRouter } from "next/router";
+
 
 
 export function EditCompo() {
   const element = useRef([]);
   const { status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     element.current.forEach((el) => {
@@ -29,8 +31,6 @@ export function EditCompo() {
     formData.date = date;
     const data = Array.from(e.currentTarget.elements);
 
-
-
     data.forEach(async field => {
       if (field.name == "") return
       formData[field.name] = field.value
@@ -41,8 +41,11 @@ export function EditCompo() {
       }
     })
     
-
+    router.push("/articlesPage");
   }
+
+
+  
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
 
@@ -109,6 +112,14 @@ export function EditCompo() {
             <img src={imageSrc} alt="" />
           </div>
           <input type="submit" value="ADD AN ARTICLE" className={styles.button} />
+        </form>
+        <h2 className="header">Add A Blog</h2>
+        <form className={styles.form}>
+          <div className={styles.image}>
+            <input type="file" name="mdx" required/>
+            <div placeholder="MDX File *" className={styles.sudoEl} ></div>
+          </div>
+          <input type="submit" value="ADD A BLOG" className={styles.button} />
         </form>
       </div>
     )

@@ -18,7 +18,6 @@ export function getSlugs() {
     const [slug, _ext] = fileName.split(".");
     return slug;
   })
-  console.log(comments)
 }
 
 export function getAllPosts() {
