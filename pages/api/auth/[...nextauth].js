@@ -24,8 +24,21 @@ export default NextAuth({
       
     })
   ],
+  callbacks: {
+    jwt: ({ token, user }) => {
+      if (user) {
+        token.id = user.id;
+      }
+      return token
+    },  
+    session: ({ session, token }) {
+      if (token) {
+        session.id = token.id;
+      }
+      return session;
+    }
+  }
   secret: process.env.SECRET,
-  // NextURL: process.env.NEXTAUTH_URL,
   jwt: {
     secret: process.env.SECRET,
     encryption: true, 
