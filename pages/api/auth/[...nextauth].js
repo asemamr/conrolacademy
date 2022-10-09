@@ -26,7 +26,7 @@ export default NextAuth({
   ],
   secret: process.env.PASSWORD,
   jwt: {
-    secret: process.env.PASSWORD
+    secret: process.env.SECRET
   },
   NextURL: process.env.NEXTAUTH_URL,
 })
