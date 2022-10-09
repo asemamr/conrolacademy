@@ -2,6 +2,7 @@ import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials"
 import { MotionValue } from "framer-motion";
+import { NextURL } from "next/dist/server/web/next-url";
 
 
 export default NextAuth({
@@ -26,5 +27,6 @@ export default NextAuth({
   secret: process.env.PASSWORD,
   jwt: {
     secret: process.env.PASSWORD
-  }
+  },
+  NextURL: process.env.NEXTAUTH_URL,
 })
