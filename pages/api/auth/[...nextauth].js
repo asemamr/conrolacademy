@@ -31,13 +31,13 @@ export default NextAuth({
       }
       return token
     },  
-    session: ({ session, token }) {
+    session: ({ session, token }) => {
       if (token) {
         session.id = token.id;
       }
       return session;
     }
-  }
+  },
   secret: process.env.SECRET,
   jwt: {
     secret: process.env.SECRET,
