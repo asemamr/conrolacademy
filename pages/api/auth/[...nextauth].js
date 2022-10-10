@@ -7,30 +7,30 @@ import { NextURL } from "next/dist/server/web/next-url";
 
 export default NextAuth({
   providers: [
-    CredentialsProvider({
-      name: "Email",
-      credentials: {
-        username: { label: "Username", type: "text", placeholder: ""},
-        password: { label: "Password", type: "password"}
-      },
-      authorize(credentials, req) {
-        const { username, password } = credentials;
+    // CredentialsProvider({
+    //   name: "Email",
+    //   credentials: {
+    //     username: { label: "Username", type: "text", placeholder: ""},
+    //     password: { label: "Password", type: "password"}
+    //   },
+    //   authorize(credentials, req) {
+    //     const { username, password } = credentials;
 
-        if (username === process.env.USER_NAME && password === process.env.PASSWORD) {
-          return { username, id: 2 };
-        }
-        return null;
-      },
+    //     if (username === process.env.USER_NAME && password === process.env.PASSWORD) {
+    //       return { username, id: 2 };
+    //     }
+    //     return null;
+    //   },
       
-    }),
+    // }),
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
       secret: process.env.GITHUB_SECRET
     })
   ],
-  secret: process.env.SECRET,
-  jwt: {
-    secret: process.env.SECRET,
-    encryption: true, 
-  }
+  // secret: process.env.SECRET,
+  // jwt: {
+  //   secret: process.env.SECRET,
+  //   encryption: true, 
+  // }
 })
