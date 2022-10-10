@@ -28,5 +28,5 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_SECRET
     })
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXT_PUBLIC_SECRET,
 })
