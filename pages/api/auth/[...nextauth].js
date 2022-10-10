@@ -25,7 +25,7 @@ export default NextAuth({
     // }),
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
-      secret: process.env.GITHUB_SECRET
+      clientSecret: process.env.GITHUB_SECRET
     })
   ],
   // secret: process.env.SECRET,
