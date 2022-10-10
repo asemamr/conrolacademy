@@ -22,22 +22,12 @@ export default NextAuth({
         return null;
       },
       
+    }),
+    GithubProvider({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      secret: process.env.GITHUB_SECRET
     })
   ],
-  callbacks: {
-    jwt: ({ token, user }) => {
-      if (user) {
-        token.id = user.id;
-      }
-      return token
-    },  
-    session: ({ session, token }) => {
-      if (token) {
-        session.id = token.id;
-      }
-      return session;
-    }
-  },
   secret: process.env.SECRET,
   jwt: {
     secret: process.env.SECRET,
