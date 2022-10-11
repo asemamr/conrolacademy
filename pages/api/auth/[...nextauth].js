@@ -29,5 +29,4 @@ export default NextAuth({
     })
   ],
   secret: "4edb8bd7b55af7edf7109c3b0da3f125",
-  NEXTAUTH_URL: process.env.NEXTAUTH_URL
 })
