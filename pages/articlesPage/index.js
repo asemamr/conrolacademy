@@ -73,7 +73,7 @@ export async function getStaticProps() {
   //   image: post.image,
   //   id: post._id.toString()
   // }))
-  const response = await fetch("https://conrolacademy.vercel.app/api/database");
+  const response = await fetch("http://conrolacademy.vercel.app/api/database");
   const posts = await response.json();
 
   return {
