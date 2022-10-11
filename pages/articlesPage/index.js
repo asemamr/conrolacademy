@@ -2,6 +2,8 @@ import Articles from "Articles/Articles.component";
 
 
 export default function ArticlesPage({ posts }) {
+  const router = useRouter();
+  console.log(router.pathname)
   return (
     <div className="container">
       <Articles posts={posts} ></Articles>
