@@ -2,7 +2,6 @@ import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials"
 import { MotionValue } from "framer-motion";
-import { NextURL } from "next/dist/server/web/next-url";
 
 
 export default NextAuth({
@@ -29,5 +28,4 @@ export default NextAuth({
     })
   ],
   secret: "4edb8bd7b55af7edf7109c3b0da3f125",
-  NEXTAUTH_URL: "https://conrolacademy.vercel.app/"
 })
