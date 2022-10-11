@@ -15,7 +15,7 @@ export default NextAuth({
       authorize(credentials, req) {
         const { username, password } = credentials;
 
-        if (username === process.env.USER_NAME && password === process.env.PASSWORD) {
+        if (username === "Fadi Alyousef" && password === "0127245956") {
           return { username, id: 2 };
         }
         return null;
