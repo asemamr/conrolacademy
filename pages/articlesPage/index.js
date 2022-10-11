@@ -1,9 +1,8 @@
 import Articles from "Articles/Articles.component";
-import connect from "../../utils/database";
 
 
 
-export default function ArticlesPage({posts}) {
+export default function ArticlesPage({ posts }) {
 
   const data = [
     {
@@ -61,19 +60,21 @@ export default function ArticlesPage({posts}) {
 }
 export async function getStaticProps() {
   
-  const { db, client } = await connect();
+  // const { db, client } = await connect();
 
-  let posts = await db.collection("articles").find().toArray();
-  client.close();
-  posts = posts.map(post => ({
-    date: post.date,
-    title: post.title,
-    writer: post.writer,
-    link: post.link,
-    description: post.description,
-    image: post.image,
-    id: post._id.toString()
-  }))
+  // let posts = await db.collection("articles").find().toArray();
+  // client.close();
+  // posts = posts.map(post => ({
+  //   date: post.date,
+  //   title: post.title,
+  //   writer: post.writer,
+  //   link: post.link,
+  //   description: post.description,
+  //   image: post.image,
+  //   id: post._id.toString()
+  // }))
+  const response = await fetch("https://conrolacademy.vercel.app/api/database");
+  const posts = await response.json();
 
   return {
     props: {
