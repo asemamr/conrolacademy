@@ -14,7 +14,6 @@ export default async function handler(req, res) {
     const { db, client } = await connect();
 
     let posts = await db.collection("articles").find().toArray();
-    client.close();
     posts = posts.map(post => ({
       date: post.date,
       title: post.title,
@@ -25,5 +24,6 @@ export default async function handler(req, res) {
       id: post._id.toString()
     }))
     res.status(200).json(posts)
+    client.close();
   }
 }
