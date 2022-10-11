@@ -28,5 +28,5 @@ export default NextAuth({
     })
   ],
   secret: "4edb8bd7b55af7edf7109c3b0da3f125",
-  NEXTAUTH_URL: "https://conrolacademy.vercel.app"
+  url: "https://conrolacademy.vercel.app"
 })
