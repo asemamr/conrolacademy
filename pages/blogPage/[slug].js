@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { getSlugs, getPostFromSlug } from "../api/api";
+import { getSlugs, getPostFromSlug } from "../api/blogApi";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import rehypeSlug   from "rehype-slug";

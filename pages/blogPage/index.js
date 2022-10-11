@@ -1,7 +1,7 @@
 import path from "path";
 import Blogs from "Blogs/Blogs.component";
-import { getSlugs } from "../api/api";
-import { getAllPosts } from "../api/api";
+import { getSlugs } from "../api/blogApi";
+import { getAllPosts } from "../api/blogApi";
 export default function BlogPage({ posts }) {
   return (
     <div className="container">

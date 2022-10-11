@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs";
 import glob from "glob";
 import matter from "gray-matter";
-import { comments } from "../../comments";
+import { comments } from "../../../comments";
 
 const POSTS_PATH = path.join(process.cwd(), "posts");
 
