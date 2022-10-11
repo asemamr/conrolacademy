@@ -10,20 +10,20 @@ export default async function handler(req, res) {
     res.status(200).json(result)
     client.close();
   }
-  else if (req.method === "GET") {
-    const { db, client } = await connect();
+  // else if (req.method === "GET") {
+  //   const { db, client } = await connect();
 
-    let posts = await db.collection("articles").find().toArray();
-    posts = posts.map(post => ({
-      date: post.date,
-      title: post.title,
-      writer: post.writer,
-      link: post.link,
-      description: post.description,
-      image: post.image,
-      id: post._id.toString()
-    }))
-    res.status(200).json(posts)
-    client.close();
-  }
+  //   let posts = await db.collection("articles").find().toArray();
+  //   posts = posts.map(post => ({
+  //     date: post.date,
+  //     title: post.title,
+  //     writer: post.writer,
+  //     link: post.link,
+  //     description: post.description,
+  //     image: post.image,
+  //     id: post._id.toString()
+  //   }))
+  //   res.status(200).json(posts)
+  //   client.close();
+  // }
 }
