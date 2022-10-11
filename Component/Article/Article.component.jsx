@@ -1,4 +1,5 @@
 import styles from "./Article.module.css";
+import Image from "next/image";
 
 export default function Article({
   writer,
@@ -22,9 +23,7 @@ export default function Article({
         </div>
       </div>
       <div className={styles.image}>
-        <picture>
-          <img src={image} alt="the article's image" width={290} height={ 158} />
-        </picture>
+        <Image src={image} alt="the article's image" width={290} height={158}></Image>
       </div>
     </div>
   );

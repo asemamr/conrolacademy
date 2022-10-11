@@ -17,6 +17,7 @@
 .article .image img {
   filter: grayscale(100%);
   transition: .5s;
+  border-radius: 5px;
 }
 .article:hover .image img {
   filter: grayscale(0);
