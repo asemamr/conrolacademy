@@ -1,5 +1,4 @@
 import { useRouter } from "next/router"
-import { getSlugs, getPostFromSlug } from "../api/blogApi";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import rehypeSlug   from "rehype-slug";
@@ -10,7 +9,8 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css"
 import styles from "../../public/slug.module.css"
 import { Code, Body, OrderList, Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Paragraph, Anchor, Photo, List } from "StylingBlog/StylingBlog.component";
-import { useScroll, useSpring, motion} from "framer-motion";
+import { useScroll, useSpring, motion } from "framer-motion";
+import { getPostsFromDB } from "../api/blogApi";
 
 const components = {
   Youtube: Youtube,
@@ -42,21 +42,24 @@ export default function Slug({ post: { source, meta: { title } } }) {
     <MDXRemote {...source} components={components} />
   </div>
 }
-export  function getStaticPaths() {
-  const slugs = getSlugs();
-  const paths = slugs.map((slug) => ({ params: { slug: slug } }))
+export async function getStaticPaths() {
+  let slugsId = await getPostsFromDB();
+  const paths = slugsId.map((slug) => ({ params: { slug: slug.meta.id } }));
   
 
   return {
     fallback: "blocking",
-    paths: paths
+    paths
   }
 
 }
 
 export async function getStaticProps({params}) {
-  const slug = params.slug;
-  const post = getPostFromSlug(slug);
+  const slugId = params.slug;
+  let posts = await getPostsFromDB();
+  let post = posts.find((el) => el.meta.id === slugId);
+  
+
   const { content, meta } = post;
   const mdxSource = await serialize(content, {
     mdxOptions: {

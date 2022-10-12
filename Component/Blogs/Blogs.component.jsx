@@ -6,7 +6,8 @@ export default function Blogs({ posts }) {
     <div className={styles.div}>
       {posts.map((post) => (
         <Blog
-          key={post.meta.title}
+          key={post.meta.id}
+          id={post.meta.id}
           title={post.meta.title}
           layout={post.meta.layout}
           fileName={post.meta.fileName}

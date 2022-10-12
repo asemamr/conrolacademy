@@ -1,9 +1,8 @@
 import Articles from "Articles/Articles.component";
+import connect from "../../utils/database";
 
 
 export default function ArticlesPage({ posts }) {
-  const router = useRouter();
-  console.log(router.pathname)
   return (
     <div className="container">
       <Articles posts={posts} ></Articles>
@@ -13,26 +12,26 @@ export default function ArticlesPage({ posts }) {
 
 
 export async function getStaticProps() {
-  const response = await fetch("https://conrolacademy.vercel.app/api/database");
-  const posts = await response.json();
+  // const response = await fetch("https://conrolacademy.vercel.app/api/database");
+  // const posts = await response.json();
 
-  // let posts = await db.collection("articles").find().toArray();
-  // client.close();
-  // posts = posts.map(post => ({
-  //   date: post.date,
-  //   title: post.title,
-  //   writer: post.writer,
-  //   link: post.link,
-  //   description: post.description,
-  //   image: post.image,
-  //   id: post._id.toString()
-  // }))
+  const { db, client } = await connect();
+  let posts = await db.collection("articles").find().toArray();
+  client.close();
+  posts = posts.map(post => ({
+    date: post.date,
+    title: post.title,
+    writer: post.writer,
+    link: post.link,
+    description: post.description,
+    image: post.image,
+    id: post._id.toString()
+  }))
 
   return {
     props: {
       posts
     },
     revalidate: 1,
-
   }
 }

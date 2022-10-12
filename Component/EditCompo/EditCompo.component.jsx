@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 
 
+
 export function EditCompo() {
   const element = useRef([]);
   const { status } = useSession();
@@ -40,7 +41,6 @@ export function EditCompo() {
         sendData(formData)
       }
     })
-    
     router.push("/articlesPage");
   }
 
@@ -67,6 +67,26 @@ export function EditCompo() {
       body: JSON.stringify(data)
     })
     const res = await response.json()
+  }
+
+  async function submitMDX(e) {
+    e.preventDefault();
+    const file = e.target.elements;
+    const MDXFile = Array.from(file).find(el => el.name === "mdx");
+
+    const reader = new FileReader();
+    reader.readAsBinaryString(MDXFile.files[0]);
+    reader.onload = async function () {
+      const data = {data: reader.result}
+      const response = await fetch("/api/blogApi/database", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      let res = await response.json();
+    }
   }
 
   async function submitHandler(e) {
@@ -114,9 +134,9 @@ export function EditCompo() {
           <input type="submit" value="ADD AN ARTICLE" className={styles.button} />
         </form>
         <h2 className="header">Add A Blog</h2>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={submitMDX}>
           <div className={styles.image}>
-            <input type="file" name="mdx" required/>
+          <input type="file" name="mdx" required/>
             <div placeholder="MDX File *" className={styles.sudoEl} ></div>
           </div>
           <input type="submit" value="ADD A BLOG" className={styles.button} />
