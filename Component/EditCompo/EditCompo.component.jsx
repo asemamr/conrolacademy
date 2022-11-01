@@ -59,7 +59,7 @@ export function EditCompo() {
   }
 
   async function sendData(data) {
-    const response = await fetch("/api/database", {
+    const response = await fetch("/api/articleApi", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -78,7 +78,7 @@ export function EditCompo() {
     reader.readAsBinaryString(MDXFile.files[0]);
     reader.onload = async function () {
       const data = {data: reader.result}
-      const response = await fetch("/api/blogApi/database", {
+      const response = await fetch("/api/blogApi", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -86,6 +86,7 @@ export function EditCompo() {
         body: JSON.stringify(data)
       })
       let res = await response.json();
+      router.push("/blogPage")
     }
   }
 

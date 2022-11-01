@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./StylingBlog.module.css";
-import Image1 from "/Component/Blogs/reduce.jpg"
+
 export function Heading1({ children, id }) {
   return (
     <h2 className={`${styles.heading} ${styles.heading1}`} id={id}>
@@ -62,7 +62,7 @@ export function Anchor({ children, href }) {
 export function Photo({ src , width, height}) {
   return (
     <picture>
-    <Image src={Image1} alt="the main image for the blog" width={width} height={height} />
+    <Image src={src} alt="the main image for the blog" width={width} height={height} />
     </picture>
     
   )

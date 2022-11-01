@@ -9,7 +9,7 @@ const Transition = ({ children }) => {
       initial={false}
       exitBeforeEnter
     >
-      <motion.div key={asPath} variants={variants} initial="in" animate="inactive" exit="out">
+      <motion.div key={asPath} variants={variants} initial="in" animate="out" exit="out">
         {children}
       </motion.div>
     </AnimatePresence>
@@ -17,25 +17,20 @@ const Transition = ({ children }) => {
 }
 const variants = {
   out: {
-    y: "-100%",
+    y: "5%",
+    opacity: 0,
     transition: {
       duration: 0.75,
       ease: "easeInOut"
     }
   },
   in: {
-    y: "100%",
+    y: "0%",
+    opacity: 1,
     transition: {
       duration: 0.75,
       ease: "easeInOut"
     }
   },
-  inactive: {
-    y: 0,
-    transition: {
-      duration: 0.75,
-      ease: "easeInOut"
-    }
-  }
 }
 export default Transition;

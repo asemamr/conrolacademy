@@ -12,18 +12,17 @@
   align-items: center;
   height: 80px;
   border-bottom: 4px solid black;
-  
-}
-.dev i {
-  
+  position: relative;
 }
 .dev ul {
   display: flex;
   gap: 1px;
 }
+.dev .logo {
+  width: 28%;
+}
 .dev  a {
   display:flex;
-  padding: 10px 15px;
   cursor: pointer;
   font-weight: bold;
   font-size: .9rem;
@@ -38,10 +37,30 @@
   padding-right: 8px;
 }
 .loading {
-  top: -100%;
+  opacity: 0;
   transition: all .5s ease-in-out;
 }
 .loaded {
-  top: 0;
+  opacity: 1;
   transition: all .5s ease-in-out;
+}
+.dev .icon {
+  display: none;
+  font-size: 2.5rem;
+  transition: .3s;
+  position: relative;
+  z-index: 3;
+}
+.dev .icon.open {
+  transform: rotate(180deg);
+}
+@media (max-width: 991px) {
+  .dev .icon{
+    display: block;
+  }
+}
+@media (max-width: 767px) {
+  .dev .logo {
+    width: 50%;
+  }
 }

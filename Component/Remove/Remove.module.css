@@ -1,0 +1,80 @@
+.remove > div {
+  position: fixed;
+  background-color: var(--main-color);
+  top: 50%;
+  left: 50%;
+  padding: 3rem;
+  max-width: 700px;
+  border-radius: 10px;
+  text-align: center;
+}
+.remove {
+  width: 100vw;
+  height: calc(100vh);
+  background-color: rgba(0, 0, 0, 0.669);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.remove .buttons {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.remove .buttons button {
+  cursor: pointer;
+  color: white;
+  border: none;
+  margin-left: 10px;
+  padding: 0.5rem .8rem;
+  font-weight: bold;
+  border: 1px solid gray;
+  position: relative;
+  overflow: hidden;
+}
+.remove .buttons button::after {
+  content: attr(content);
+  line-height: 33px;
+  text-align: center;
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  opacity: 0;
+}
+.remove button:hover::after {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.remove .yesBtn {
+  background-color: red;
+  border-radius: 5px;
+}
+.remove .yesBtn::after {
+  background-color: rgb(237, 1, 1);
+}
+.remove .noBtn {
+  background-color:transparent;
+  border-radius: 5px;
+}
+.remove .noBtn::after {
+  content: "No";
+  background-color: #8d725e;
+}
+@media (max-width: 991px) {
+  .remove > div {
+    padding: 1.5rem 2rem;
+    max-width: 500px;
+    font-size: .9rem;
+  }
+}
+@media (max-width: 767px) {
+  .remove > div {
+    width: calc(100% - 30px);
+  }
+}

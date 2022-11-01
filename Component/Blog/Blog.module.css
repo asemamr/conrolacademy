@@ -1,10 +1,17 @@
 .blog {
   background-color: antiquewhite;
-  width: calc(50% - 10px);
-  padding: 2rem 1rem;
+  /* padding: 2rem 1rem; */
   border-radius: 1rem;
   border: 1px solid var(--main-color);
+  display: block;
   transition: background-color .2s;
+  margin-bottom: 20px;
+  break-inside: avoid;
+  position: relative;
+}
+.blog a {
+  display: block;
+  padding: 2rem 1rem;
 }
 .blog:hover {
   background-color: rgb(220, 206, 187);
@@ -13,4 +20,20 @@
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
+}
+.blog .deleteBtn {
+  background-color: #ad8b73;
+  border: none;
+  padding: 3px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  z-index: 4;
+}
+.blog .deleteBtn i {
+  font-size: 1.1rem;
+
 }

@@ -1,6 +1,14 @@
+.page {
+  min-height: calc(100vh - 230px);
+}
 .div {
   margin-top: 8rem;
-  display: flex;
+  margin-bottom: 3rem;
+  columns: 2;
   gap: 20px;
-  flex-wrap: wrap;
+}
+@media (max-width: 767px) {
+  .div {
+    columns: 1;
+  }
 }

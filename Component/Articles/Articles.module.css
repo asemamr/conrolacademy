@@ -1,6 +1,118 @@
 .articles {
   margin-top: 8rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  min-height: calc(100vh - 230px);
+  gap: 20px;
+}
+@media (max-width: 991px) {
+  .articles {
+    columns: 2;
+  }
+}
+@media (max-width: 767px) {
+  .articles {
+    columns: 1;
+  }
+}
+.article {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  align-items: center;
+  position: relative;
+  flex-direction: row-reverse;
+  background-color: antiquewhite;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.article .deleteBtn {
+  background-color: #ad8b73;
+  border: none;
+  padding: 3px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  z-index: 3;
+}
+.article .deleteBtn i {
+  font-size: 1.1rem;
+
+}
+.article .image {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px 10px;
+}
+.article .image img {
+  filter: grayscale(100%);
+  transition: .5s;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.article:hover .image img {
+  filter: grayscale(0);
+}
+.article .text {
+  margin: 1rem;
+  border-left: 2px solid black;
+  width: 70%;
+  padding-left: 2rem;
+}
+.article .text h2 {
+  padding: .5rem 0 1rem;
+}
+.article .info {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.article .info .dateAndWriter {
+  columns: 2;
+  flex: 1;
+  font-size: 1rem;
+}
+.article .info a button{
+  background-color: var(--main-color);
+  border: none;
+  padding:  .7rem 1rem;
+  color: var(--background-color);
+  border: 1px solid var(--main-color);
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.article .info a button:hover {
+  background-color: var(--background-color);
+  color: var(--main-color);
+}
+/* for the medium screens */
+@media (max-width: 991px) {
+  .article {
+    flex-direction: column-reverse;
+    break-inside:avoid-column;
+  }
+  .article .image{
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
+  .article .text {
+    border-left: none;
+    margin: 0;
+    padding: 15px;
+    width: 100%;
+  }
+  .article .info p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  .article .info .dateAndWriter {
+    columns: 1;
+  }
 }

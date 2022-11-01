@@ -1,7 +1,7 @@
 import { EditCompo } from "EditCompo/EditCompo.component"
 
 export default function EditPage() {
-  return <>
+  return <div className="container">
     <EditCompo></EditCompo>
-  </>
+  </div>
 }

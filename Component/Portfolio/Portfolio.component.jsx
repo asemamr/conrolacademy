@@ -3,19 +3,13 @@ import image from "../../images/download.jpg";
 import Image from "next/image";
 import signature from "../../images/signature.png";
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Portfolio() {
   const imageMove = useRef();
   const borderMove = useRef();
   const tabTransition = useRef(null);
   const [toggle, setToggle] = useState("experience");
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const [rotate, setRotate] = useState(0);
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = scrollYProgress;
 
   useEffect(() => {
     document.addEventListener("mousemove", (e) => {
@@ -44,12 +38,8 @@ export default function Portfolio() {
 
   return (
     <div>
-      <motion.div
-        className={styles.scrollProgress}
-        style={{ scaleX }}
-      ></motion.div>
       <div className={styles.dev}>
-        <div className={styles.compo} ref={imageMove}>
+        <motion.div className={styles.compo} ref={imageMove} initial={{opacity: 0, scale: .7 }} animate={{opacity: 1,scale: 1, transition: {duration: .4, ease: [0.2, 0, 0.5, 2]}}}>
           <div className={styles.imageCompo}>
             <picture>
               <Image
@@ -60,8 +50,8 @@ export default function Portfolio() {
             </picture>
           </div>
           <div className={styles.border} ref={borderMove}></div>
-        </div>
-        <div className={styles.text}>
+        </motion.div>
+        <motion.div className={styles.text} initial={{x: -50, opacity: 0, transition: {delay: .3}}} animate={{x: 0, opacity: 1, transition: {delay: .3,duration: 0.3}}}>
           <h2>
             WEBSITE DEVELOPER
           </h2>
@@ -70,13 +60,13 @@ export default function Portfolio() {
             based on London. Sometimes works as a freelancer.
           </p>
           <picture>
-            <Image alt="signature" src={signature}></Image>
+            <Image alt="signature" src={signature} className={styles.signature}></Image>
           </picture>
-        </div>
+        </motion.div>
       </div>
 
-      <div className={styles.biography}>
-        <h3 className="header">BIOGRAPHY</h3>
+      <motion.div className={styles.biography} initial={{y: -20, opacity: 0}} animate={{y: 0, opacity: 1, transition: {duration: 0.3, delay: .7}}}>
+        <h3 className="header" >BIOGRAPHY</h3>
         <p className={styles.mainText}>
           I am an enthusiastic, curious, and technology-focused researcher
           pursuing his Ph.D. in Control Systems from the esteemed University of
@@ -275,7 +265,7 @@ export default function Portfolio() {
               </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

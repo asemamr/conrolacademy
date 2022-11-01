@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Dynalight&display=swap');
+.div {
+  width: 100vw;
+  min-height: 150px;
+  background: #cbc7b5;
+  background-color: #755a48;
+  max-width: 100%;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.div a {
+  color: white;
+}
+.div .imageContainer {
+  width: 60%;
+}
+.div .imageContainer p {
+  text-align: left;
+}
+.div ul {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+}
+.div ul a {
+  font-size: 1.2rem;
+}
+.div li {
+  list-style-type: none;
+}
+.div span {
+  font-family: 'Dynalight', cursive;
+  font-size: 1.5rem;
+  color: #fffbe9;
+}
+@media (max-width: 767px) {
+  .div {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 0;
+  }
+  .div .imageContainer {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .div .imageContainer p {
+    text-align: center;
+  }
+}

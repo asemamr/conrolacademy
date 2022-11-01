@@ -17,6 +17,17 @@
   font-family: 'Open Sans', sans-serif;
 }
 .blog {
-  padding: 20px 15%;
-  margin-top: 5rem;
+  margin-top: 7rem;
+  padding: 0 200px;
+  margin-bottom: 3rem;
+}
+@media (max-width: 991px) {
+  .blog {
+    padding: 0 50px;
+  }
+}
+@media (max-width: 767px) {
+  .blog {
+    padding: 0;
+  }
 }

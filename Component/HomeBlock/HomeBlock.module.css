@@ -25,3 +25,21 @@
   left: 0;
   bottom: -12px;
 }
+@media (max-width: 991px) {
+  .dev .text h2 {
+    font-size: 2.1rem;
+  }
+}
+@media (max-width: 767px) {
+  .dev {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .dev .imageContainer {
+    max-width: 100%;
+  }
+  .dev .text h2 {
+    font-size: 1.9rem;
+    margin-bottom: 30px;
+  }
+}

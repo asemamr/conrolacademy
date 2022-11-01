@@ -1,5 +1,7 @@
 .div {
   margin-top: 8rem;
+  margin-bottom: 3rem;
+  min-height: calc(100vh - 278px);
 }
 .form {
   display: flex;
@@ -8,6 +10,7 @@
   width: 700px;
   gap: 1rem;
 }
+
 .form > div {
   display: flex;
   position: relative;
@@ -31,11 +34,19 @@
 .form > div textarea {
   font-family: Arial, Helvetica, sans-serif;
   resize:vertical;
-
 }
 .form .email,
 .form .name {
   width: calc(50% - .5rem);
+}
+@media (max-width: 767px) {
+  .form {
+    width: auto;
+  }
+  .form .email, 
+  .form .name {
+    width: 100%;
+  }
 }
 .form .phone,
 .form .message {

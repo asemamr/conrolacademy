@@ -36,6 +36,15 @@
 .form .name {
   width: calc(50% - .5rem);
 }
+@media (max-width: 767px) {
+  .form {
+    width: auto;
+  }
+  .form .writer, 
+  .form .name {
+    width: 100%;
+  }
+}
 .form .link,
 .form .description,
 .form .image {

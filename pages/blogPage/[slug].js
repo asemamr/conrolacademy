@@ -34,12 +34,14 @@ export default function Slug({ post: { source, meta: { title } } }) {
   
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress,{ stiffness: 300, damping: 30 });
-  return <div className={`container ${styles.blog}`}>
-    <title>{title}</title>
-    <motion.div style={{scaleX}} className={styles.progress}>
-    </motion.div>
-    <h2 className={styles.blogHeading}>{title}</h2>
-    <MDXRemote {...source} components={components} />
+  return <div className="container">
+    <div className={styles.blog} style={{ "minHeight": "calc(100vh - 230px)" }}>
+      <title>{title}</title>
+      <motion.div style={{scaleX}} className={styles.progress}>
+      </motion.div>
+      <h2 className={styles.blogHeading}>{title}</h2>
+      <MDXRemote {...source} components={components} />
+    </div>
   </div>
 }
 export async function getStaticPaths() {
