@@ -18,7 +18,7 @@ export default function Remove({ onClickButton, itemId, remove, title, api }) {
     <AnimatePresence>
       {remove && <motion.div className={styles.remove} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
           <motion.div
-            initial={{ opacity: 0, scale: 0.2, translate: "-50% -50%" }}
+            initial={{ opacity: 0, scale: 0.2, translateX: "-50%", translateY: "-50%" }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 , transition: {duration: .2}}}
           >
