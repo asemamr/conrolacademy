@@ -37,6 +37,10 @@
   font-size: 1.5rem;
   color: #fffbe9;
 }
+.image {
+  width: 100%;
+  object-fit: contain;
+}
 @media (max-width: 767px) {
   .div {
     flex-direction: column;

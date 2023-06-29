@@ -59,14 +59,12 @@ export default function Blog({ title, layout, fileName, writer, date, id }) {
           </button>
         )}
         <Link href={`/blogPage/${id}`}>
-          <a>
             <h2>{title}</h2>
             <p>{layout}</p>
             <div className={styles.info}>
               <p>{writer}</p>
               <p>{date}</p>
             </div>
-          </a>
         </Link>
       </motion.div>}
     </AnimatePresence>

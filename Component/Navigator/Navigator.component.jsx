@@ -22,12 +22,8 @@ export default function Navigator() {
     <div className={styles.nav}>
       <div className={`${styles.dev} container`}>
         <div className={styles.logo}>
-          <Link href="/">
-            <a>
-              <picture>
-                <Image src={logo} alt="logo"></Image>
-              </picture>
-            </a>
+          <Link href="/" className={styles.a}>
+                <Image src={logo} alt="logo" className={styles.image}></Image>
           </Link>
         </div>
         <Links open={open}></Links>

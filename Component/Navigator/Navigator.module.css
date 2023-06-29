@@ -21,18 +21,18 @@
 .dev .logo {
   width: 28%;
 }
-.dev  a {
+.dev  .a {
   display:flex;
   cursor: pointer;
   font-weight: bold;
   font-size: .9rem;
   transition: 0.2s;
 }
-.dev a.active {
+.dev .a.active {
   background-color: var(--main-color);
   color: var(--background-color);
 }
-.dev li a i {
+.dev li .a i {
   font-weight: normal;
   padding-right: 8px;
 }
@@ -50,6 +50,10 @@
   transition: .3s;
   position: relative;
   z-index: 3;
+}
+.image {
+  width: 100%;
+  object-fit: contain;
 }
 .dev .icon.open {
   transform: rotate(180deg);

@@ -9,6 +9,11 @@
   max-width: 50%;
   position: relative;
 }
+.dev .imageContainer .image {
+  width: 100%;
+  object-fit: contain;
+  height: fit-content;
+}
 .dev .text h2 {
   font-size: 2.5rem;
   font-family: 'Times New Roman', Times, serif;

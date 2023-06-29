@@ -38,12 +38,12 @@ export function EditCompo() {
       if (field.name == "image") {
         const data = await getImageUrl(e);
         formData.image = data
-        sendData(formData)
+        await sendData(formData)
       } else {
         formData[field.name] = field.value
       }
     })
-    // router.push("/articlesPage");
+    router.push("/articlesPage");
   }
 
 

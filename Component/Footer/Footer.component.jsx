@@ -10,7 +10,7 @@ export default function Footer() {
     <div className={styles.div}>
       <div className={styles.info}>
         <div className={styles.imageContainer}>
-          <Image src={logo}></Image>
+          <Image src={logo} className={styles.image}></Image>
           <p>
           We’re a nonprofit with the mission to provide a free, world-class
           education for anyone, anywhere.
@@ -26,38 +26,25 @@ export default function Footer() {
           {!session && (
             <li>
               <Link href="/api/auth/signin">
-                <a
-                  onClick={() => {
-                    e.preventDefault();
-                    signIn("github");
-                  }}
-                >
                   <i className="fa-regular fa-unlock"></i>
-                </a>
               </Link>
             </li>
           )}
           {session && (
             <li>
               <Link href="/api/auth/signout">
-                <a onClick={() => signIN()}>
                   <i className="fa-regular fa-lock"></i>
-                </a>
               </Link>
             </li>
           )}
           <li>
             <Link href="https://www.linkedin.com/in/asem-amr-9334411a6/">
-              <a>
                 <i className="fa-brands fa-linkedin"></i>
-              </a>
             </Link>
           </li>
           <li>
             <Link href="https://www.instagram.com/asem_amr_/">
-              <a>
                 <i className="fa-brands fa-square-instagram"></i>
-              </a>
             </Link>
           </li>
         </ul>
