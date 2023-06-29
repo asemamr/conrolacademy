@@ -25,7 +25,7 @@ export function EditCompo() {
 
 
 
-  async function submitForm(e) {
+  async function submitArticle(e) {
     const formData = {};
     e.preventDefault();
     const date = format(new Date(), "dd MMM yyyy");
@@ -34,14 +34,16 @@ export function EditCompo() {
 
     data.forEach(async field => {
       if (field.name == "") return
-      formData[field.name] = field.value
+      
       if (field.name == "image") {
-        const data = await submitHandler(e);
+        const data = await getImageUrl(e);
         formData.image = data
         sendData(formData)
+      } else {
+        formData[field.name] = field.value
       }
     })
-    router.push("/articlesPage");
+    // router.push("/articlesPage");
   }
 
 
@@ -90,21 +92,22 @@ export function EditCompo() {
     }
   }
 
-  async function submitHandler(e) {
+  async function getImageUrl(e) {
     e.preventDefault();
     const file = e.target.elements;
     const theImage = Array.from(file).find((el) => el.name === "image");
     const formData = new FormData();
     formData.append("file", theImage.files[0]);
     formData.append("upload_preset", "my-images");
-    const data = await fetch("https://api.cloudinary.com/v1_1/dzoqvjo5t/image/upload", { method: "POST", body: formData }).then(res => res.json());
+    const data = await fetch("https://api.cloudinary.com/v1_1/asemamr/image/upload" , { method: "POST", body: formData }).then(res => res.json());
     return data.url;
   }
+
   if (status === "authenticated") {
     return (
       <div className={styles.div}>
         <h2 className="header">Add An Article</h2>
-        <form method="post" className={styles.form} onSubmit={submitForm}>
+        <form method="post" className={styles.form} onSubmit={submitArticle}>
           <div className={styles.name}>
             <input type="text" name="title" required ref={(el) => (element.current[0] = el)} />
             <div placeholder="Title *" className={styles.sudoEl}></div>

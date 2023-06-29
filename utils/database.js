@@ -3,7 +3,7 @@ import { MongoClient } from "mongodb";
 
 
 async function connect() {
-  const client = new MongoClient("mongodb+srv://asem:0127245956@cluster0.28r7lfl.mongodb.net/?retryWrites=true&w=majority");
+  const client = new MongoClient(process.env.MONGODB_URL);
   const db = client.db("fadi");
   return { db, client };
 }

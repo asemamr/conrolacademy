@@ -1,7 +1,5 @@
 import NextAuth from "next-auth/next";
-import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials"
-import { MotionValue } from "framer-motion";
 
 
 export default NextAuth({
@@ -15,7 +13,7 @@ export default NextAuth({
       authorize(credentials, req) {
         const { username, password } = credentials;
 
-        if (username === "Fadi Alyousef" && password === "0127245956") {
+        if (username === process.env.USERNAME && password === process.env.PASSWORD) {
           return { username, id: 2 };
         }
         return null;
@@ -23,6 +21,6 @@ export default NextAuth({
       
     }),
   ],
-  secret: "4edb8bd7b55af7edf7109c3b0da3f125",
+  secret: process.env.AUTH_SECRET,
   url: "http://localhost:3000"
 })
